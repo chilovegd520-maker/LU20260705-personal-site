@@ -3,357 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>呂子奇 | 資深後端工程師履歷</title>
+    <title>呂紫綺 Tzu-Chi Lu | 個人履歷</title>
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 修正 Google Fonts 載入 Noto Sans TC -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg-body: #f4f6f9;
-            --bg-card: #ffffff;
-            --primary: #2c3e50;
-            --accent: #3498db;
-            --text-main: #2d3748;
-            --text-muted: #718096;
-            --border: #edf2f7;
-            --sidebar-width: 320px;
-        }
-
-        * {
-            box-sizing: border-box;
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #ffffff;
+            scroll-behavior: smooth;
             margin: 0;
             padding: 0;
         }
-
-        body {
-            font-family: "PingFang TC", "Microsoft JhengHei", "Segoe UI", sans-serif;
-            line-height: 1.6;
-            color: var(--text-main);
-            background-color: var(--bg-body);
-            display: flex;
-        }
-
-        /* 左側固定邊欄 Layout */
-        .sidebar {
-            width: var(--sidebar-width);
-            background-color: var(--primary);
-            color: #ffffff;
-            height: 100vh;
-            position: fixed;
-            top: 0;
-            left: 0;
-            padding: 40px 30px;
+        /* 強制所有區塊內容絕對置中 */
+        section, footer, header {
             display: flex;
             flex-direction: column;
-            overflow-y: auto;
-            box-shadow: 4px 0 10px rgba(0,0,0,0.05);
-        }
-
-        /* 右側主內容 Layout */
-        .main-content {
-            margin-left: var(--sidebar-width);
-            flex: 1;
-            padding: 50px 60px;
-            max-width: 1000px;
-        }
-
-        /* 邊欄個人資訊樣式 */
-        .profile-section {
+            align-items: center;
             text-align: center;
-            padding-bottom: 30px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            margin-bottom: 30px;
-        }
-
-        .avatar-placeholder {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, var(--accent), #2ecc71);
-            border-radius: 50%;
-            margin: 0 auto 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            font-weight: bold;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
-
-        .profile-section h1 {
-            font-size: 1.8rem;
-            margin-bottom: 5px;
-            letter-spacing: 1px;
-        }
-
-        .profile-section .title {
-            font-size: 1rem;
-            color: #bdc3c7;
-            font-weight: 500;
-        }
-
-        .contact-info {
-            font-size: 0.9rem;
-            margin-bottom: 35px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 12px;
-            color: #ecf0f1;
-        }
-
-        .contact-item span {
-            margin-right: 10px;
-            font-size: 1.1rem;
-        }
-
-        .contact-item a {
-            color: #ecf0f1;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .contact-item a:hover {
-            color: var(--accent);
-            text-decoration: underline;
-        }
-
-        .sidebar-subtitle {
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #34495e;
-            background-color: #ecf0f1;
-            padding: 4px 10px;
-            border-radius: 4px;
-            margin-bottom: 15px;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        .sidebar-skills {
-            margin-bottom: 25px;
-        }
-
-        .sidebar-skills h4 {
-            font-size: 0.9rem;
-            color: #bdc3c7;
-            margin-bottom: 8px;
-        }
-
-        .sidebar-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-bottom: 15px;
-        }
-
-        .sidebar-tag {
-            font-size: 0.8rem;
-            background-color: rgba(255,255,255,0.1);
-            padding: 3px 8px;
-            border-radius: 4px;
-            color: #fff;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-
-        /* 右側區塊樣式 */
-        section {
-            background-color: var(--bg-card);
-            border-radius: 12px;
-            padding: 35px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-            border: 1px solid var(--border);
-        }
-
-        .section-header {
-            font-size: 1.4rem;
-            color: var(--primary);
-            font-weight: bold;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            border-bottom: 2px solid var(--border);
-            padding-bottom: 10px;
-        }
-
-        .section-header::before {
-            content: "";
-            display: inline-block;
-            width: 6px;
-            height: 22px;
-            background-color: var(--accent);
-            margin-right: 12px;
-            border-radius: 2px;
-        }
-
-        .summary-text {
-            color: #4a5568;
-            font-size: 1.05rem;
-            text-align: justify;
-        }
-
-        /* 專案卡片樣式 */
-        .project-card {
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 25px;
-            margin-bottom: 20px;
-            background-color: #ffffff;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.05);
-        }
-
-        .project-title-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 8px;
-        }
-
-        .project-name {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: var(--primary);
-        }
-
-        .project-link a {
-            color: var(--accent);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .project-tagline {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            font-style: italic;
-            margin-bottom: 15px;
-        }
-
-        .project-bullets {
             padding-left: 20px;
+            padding-right: 20px;
         }
-
-        .project-bullets li {
-            margin-bottom: 10px;
-            color: #4a5568;
-            font-size: 0.98rem;
+        /* 照片圓形且不變形 */
+        .img-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #f0f0f0;
+            margin-bottom: 20px;
         }
-
-        .highlight-metric {
-            color: #e74c3c;
-            font-weight: bold;
+        /* 導覽大綱滑鼠效果 */
+        .nav-item {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #d1d5db;
+            margin: 10px 20px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
         }
-
-        /* 響應式：手機板自動收回側邊欄 */
-        @media (max-width: 850px) {
-            body {
-                flex-direction: column;
-            }
-            .sidebar {
-                width: 100%;
-                height: auto;
-                position: relative;
-                padding: 30px 20px;
-            }
-            .main-content {
-                margin-left: 0;
-                padding: 30px 20px;
-            }
+        .nav-item:hover {
+            color: #2563eb;
+            transform: scale(1.2);
         }
     </style>
 </head>
 <body>
 
-    <!-- 左側固定邊欄 Layout -->
-    <div class="sidebar">
-        <div class="profile-section">
-            <div class="avatar-placeholder">呂</div>
-            <h1>呂子奇</h1>
-            <div class="title">Senior Back-End Engineer</div>
-        </div>
-
-        <div class="contact-info">
-            <div class="contact-item"><span>📱</span> 0912-345-678</div>
-            <div class="contact-item"><span>✉️</span> <a href="mailto:Tzuchilu0912@gmail.com">Tzuchilu0912@gmail.com</a></div>
-            <div class="contact-item"><span>🌐</span> <a href="https://github.com/chilovegd520-maker" target="_blank">github.com/chilovegd520-maker</a></div>
-            <div class="contact-item"><span>📍</span> 台灣, 台北市</div>
-        </div>
-
-        <div class="sidebar-subtitle">技術棧 / Skills</div>
+    <!-- 第一頁：主頁 (絕對置中) -->
+    <header class="h-screen flex flex-col justify-center bg-gray-50">
+        <!-- 照片在正中間 -->
+        <img src="mycat.jpg" alt="呂紫綺" class="img-circle">
         
-        <div class="sidebar-skills">
-            <h4>核心後端與框架</h4>
-            <div class="sidebar-tags">
-                <span class="sidebar-tag">Java</span>
-                <span class="sidebar-tag">Spring Boot</span>
-                <span class="sidebar-tag">Spring Data JPA</span>
-                <span class="sidebar-tag">RESTful API</span>
-            </div>
-            
-            <h4>資料庫管理</h4>
-            <div class="sidebar-tags">
-                <span class="sidebar-tag">MySQL</span>
-                <span class="sidebar-tag">Redis</span>
-                <span class="sidebar-tag">SQL Optimization</span>
-            </div>
-
-            <h4>維運與雲端</h4>
-            <div class="sidebar-tags">
-                <span class="sidebar-tag">Docker</span>
-                <span class="sidebar-tag">Linux (Ubuntu)</span>
-                <span class="sidebar-tag">AWS (EC2 / RDS)</span>
-                <span class="sidebar-tag">CI/CD Pipeline</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- 右側主內容 Layout -->
-    <div class="main-content">
+        <h2 class="text-2xl font-bold text-gray-700">呂紫綺 Tzu-Chi Lu</h2>
+        <p class="text-blue-600 font-bold tracking-widest text-sm mb-4">JAVA & MYSQL DEVELOPER</p>
         
-        <section id="about">
-            <div class="section-header">個人簡述 / Summary</div>
-            <p class="summary-text">
-                具備多年 <strong>Java / Spring Boot</strong> 生態系實戰經驗的資深後端工程師。專長於高併發系統架構設計、資料庫效能調優以及標準化微服務容器化部署。善於透過數據導向（Data-driven）的方式主導技術架構升級，並具備帶領 5 人技術團隊實踐 Agile 開發、Code Review 規範建立與指導初階工程師之經驗。
+        <h1 class="text-8xl font-black text-black mb-10">HELLO.</h1>
+
+        <!-- 中文導覽大綱 -->
+        <nav class="flex flex-wrap justify-center max-w-2xl mx-auto">
+            <a href="#about" class="nav-item">關於我</a>
+            <a href="#skills" class="nav-item">專業技能</a>
+            <a href="#projects" class="nav-item">作品展示</a>
+            <a href="#contact" class="nav-item">聯絡方式</a>
+        </nav>
+    </header>
+
+    <!-- 關於我 (加上 mx-auto 置中欄位) -->
+    <section id="about" class="py-20 bg-white">
+        <h2 class="text-4xl font-black mb-10">關於我</h2>
+        <div class="max-w-2xl mx-auto">
+            <h3 class="text-xl font-bold text-blue-600 mb-4 italic">轉職故事</h3>
+            <p class="text-gray-600 leading-loose mb-10">
+                我正踏在轉職開發者的道路上，對新技術充滿強烈的好奇心。<br>
+                我熱衷於將複雜的邏輯拆解為可執行的程式碼，並在解決 Bug 的過程中獲得成就感。<br>
+                相信過往職場的穩定性，能讓我更快速適應工程師的開發節奏。
             </p>
-        </section>
+            <h3 class="text-xl font-bold text-blue-600 mb-4 italic">生活愛好</h3>
+            <p class="text-gray-600 leading-loose">
+                📖 閱讀探索 ｜ ✈️ 旅遊攝影 ｜ 🐈 貓奴生活 ｜ ⚡ 效率研究
+            </p>
+        </div>
+    </section>
 
-        <section id="projects">
-            <div class="section-header">核心專案作品集 / Projects Portfolio</div>
-
-            <!-- 專案 1 -->
-            <div class="project-card">
-                <div class="project-title-row">
-                    <div class="project-name">🛒 高併發大規模電商後端系統</div>
-                    <div class="project-link"><a href="#" target="_blank">🔗 專案原始碼</a></div>
+    <!-- 專業技能 (加上 mx-auto 與 grid 置中) -->
+    <section id="skills" class="py-20 bg-gray-50">
+        <h2 class="text-4xl font-black mb-16">專業技能</h2>
+        <div class="max-w-3xl w-full mx-auto grid grid-cols-1 gap-8 justify-items-center">
+            
+            <!-- Java 卡片 -->
+            <div class="bg-white p-10 rounded-2xl shadow-sm border border-gray-100 w-full max-w-2xl">
+                <h4 class="text-2xl font-bold mb-4">Java 程式開發</h4>
+                <p class="text-gray-500 leading-loose mb-6">
+                    掌握物件導向核心概念（封裝、繼承、多型），能編寫邏輯嚴謹、具備高度擴充性的後端程式碼。
+                </p>
+                <div class="flex justify-center gap-2">
+                    <span class="px-4 py-1 bg-blue-50 text-blue-600 rounded-full text-sm font-bold">OOP</span>
+                    <span class="px-4 py-1 bg-blue-50 text-blue-600 rounded-full text-sm font-bold">Backend</span>
                 </div>
-                <div class="project-tagline">使用 Spring Boot, Redis 與 MySQL 建構的高效能分散式 API 架構</div>
-                <ul class="project-bullets">
-                    <li><strong>效能卓越調優：</strong> 重新設計核心資料庫索引結構，利用 EXPLAIN 分析並優化複雜查詢，成功讓高頻查詢 API 延遲（Latency）<span class="highlight-metric">降低 35%</span>。</li>
-                    <li><strong>高併發緩存策略：</strong> 引入 Redis 建立多級緩存機制，有效消峰，解決搶購活動期間的資料庫崩潰危機，使系統吞吐量（Throughput）<span class="highlight-metric">提升 2.5 倍</span>。</li>
-                    <li><strong>標準化維運環境：</strong> 撰寫 Docker 部署指令與自動化 CI/CD 流水線，達成跨環境一鍵獨立部署，使團隊交付效率提升 40%。</li>
-                </ul>
             </div>
 
-            <!-- 專案 2 -->
-            <div class="project-card">
-                <div class="project-title-row">
-                    <div class="project-name">📊 自動化分散式 Linux 系統監控工具</div>
-                    <div class="project-link"><a href="#" target="_blank">🔗 專案原始碼</a></div>
+            <!-- MySQL 卡片 -->
+            <div class="bg-white p-10 rounded-2xl shadow-sm border border-gray-100 w-full max-w-2xl">
+                <h4 class="text-2xl font-bold mb-4">MySQL 資料庫管理</h4>
+                <p class="text-gray-500 leading-loose mb-6">
+                    熟悉資料庫正規化設計，能編寫 SQL 語法進行 CRUD 操作，並理解索引優化與資料維護的重要性。
+                </p>
+                <div class="flex justify-center gap-2">
+                    <span class="px-4 py-1 bg-blue-50 text-blue-600 rounded-full text-sm font-bold">SQL</span>
+                    <span class="px-4 py-1 bg-blue-50 text-blue-600 rounded-full text-sm font-bold">RDBMS</span>
                 </div>
-                <div class="project-tagline">結合 Shell Script 與 Java 定時排程的高可靠性雲端伺服器監控系統</div>
-                <ul class="project-bullets">
-                    <li><strong>分佈式雲端實踐：</strong> 實際將系統部署於多台 AWS EC2 實例，整合 AWS RDS (MySQL) 安全組與 VPC 網路架構，保障內部數據傳輸安全。</li>
-                    <li><strong>自動化資源排程：</strong> 利用 Linux Crontab 與 Java 內建的 <code>@Scheduled</code> 機制，打造即時資源健康監測，在記憶體或 CPU 異常時能於 <span class="highlight-metric">3 秒內</span>發出預警通知。</li>
-                </ul>
             </div>
-        </section>
+        </div>
+    </section>
 
-    </div>
+    <!-- 作品展示 (加上 mx-auto 置中與卡片美化) -->
+    <section id="projects" class="py-20 bg-white">
+        <h2 class="text-4xl font-black mb-10">作品展示</h2>
+        <div class="max-w-2xl w-full mx-auto space-y-6">
+            <div class="p-8 border border-gray-200 rounded-2xl bg-white shadow-sm hover:shadow-md hover:border-blue-500 transition duration-300">
+                <h4 class="text-xl font-bold text-gray-800">Java 管理系統 <span class="ml-2 text-sm px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full font-medium">開發中</span></h4>
+            </div>
+            <div class="p-8 border border-gray-200 rounded-2xl bg-white shadow-sm hover:shadow-md hover:border-blue-500 transition duration-300">
+                <h4 class="text-xl font-bold text-gray-800">個人職涯網頁 <span class="ml-2 text-sm px-3 py-1 bg-green-100 text-green-700 rounded-full font-medium">完成</span></h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- 聯絡方式 -->
+    <footer id="contact" class="py-20 bg-black text-white w-full">
+        <h2 class="text-4xl font-black mb-10">聯絡方式</h2>
+        <div class="text-xl space-y-4 max-w-md mx-auto">
+            <p>Email: <a href="mailto:Tzuchilu0912@gmail.com" class="text-blue-400 hover:underline">Tzuchilu0912@gmail.com</a></p>
+            <p>LINE: <span class="text-gray-300">09-55067583</span></p>
+        </div>
+        <p class="mt-20 text-gray-600 text-xs uppercase tracking-widest">© 2026 Tzu-Chi Lu</p>
+    </footer>
 
 </body>
 </html>
