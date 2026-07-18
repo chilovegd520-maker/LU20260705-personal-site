@@ -6,79 +6,95 @@
     <title>呂紫綺 Tzu-Chi Lu | 後端開發工程師</title>
     <!-- 引入 Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- 引入 Google Fonts Noto Sans TC -->
+    <!-- 引入 Google Fonts Noto Sans TC (暖人文) 與 JetBrains Mono (代碼字型) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <!-- 引入 FontAwesome 圖示 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <style>
         body {
             font-family: 'Noto Sans TC', sans-serif;
+            background-color: #faf6f0; /* 溫慢的棉麻白底色，極具人文質感 */
         }
         .code-font {
             font-family: 'JetBrains Mono', monospace;
         }
+        /* 溫暖圓潤頭像外框 */
         .img-circle {
-            width: 140px;
-            height: 140px;
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
             object-fit: cover;
             border: 4px solid #ffffff;
-            box-shadow: 0 10px 30px -5px rgba(59, 130, 246, 0.2);
+            box-shadow: 0 10px 30px -5px rgba(201, 111, 83, 0.15); /* 帶有陶瓦紅微光的陰影 */
+        }
+        /* 隱藏滾動條但保持滾動功能 */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased">
+<body class="text-[#2d241e] antialiased"> <!-- 使用深焙茶色代替純黑，閱讀體驗更溫和 -->
 
-    <!-- 置頂導覽列 -->
-    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm">
+    <!-- 頂部導覽列：採用暖白半透明與微細邊框 -->
+    <nav class="sticky top-0 z-40 bg-[#fdfbf7]/90 backdrop-blur-md border-b border-[#eedec9] shadow-xs">
         <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="#" class="font-black text-xl tracking-wider text-slate-900 code-font">
-                <span class="text-blue-600">&lt;</span>TzuChi.Lu <span class="text-blue-600">/&gt;</span>
+            <a href="#" class="font-black text-lg tracking-wider text-[#2d241e] code-font">
+                <span class="text-[#c96f53]">&lt;</span>TzuChi.Lu <span class="text-[#c96f53]">/&gt;</span>
             </a>
             <div class="hidden md:flex space-x-8">
-                <a href="#about" class="text-sm font-bold text-slate-600 hover:text-blue-600 transition-colors">專業定位</a>
-                <a href="#skills" class="text-sm font-bold text-slate-600 hover:text-blue-600 transition-colors">技術棧</a>
-                <a href="#projects" class="text-sm font-bold text-slate-600 hover:text-blue-600 transition-colors">專案實績</a>
-                <a href="#contact" class="text-sm font-bold text-slate-600 hover:text-blue-600 transition-colors">聯絡管道</a>
+                <a href="#about" class="text-sm font-bold text-[#6e6156] hover:text-[#c96f53] transition-colors">專業定位</a>
+                <a href="#skills" class="text-sm font-bold text-[#6e6156] hover:text-[#c96f53] transition-colors">技術棧儀表板</a>
+                <a href="#architecture" class="text-sm font-bold text-[#6e6156] hover:text-[#c96f53] transition-colors">專案架構圖</a>
+                <a href="#workflow" class="text-sm font-bold text-[#6e6156] hover:text-[#c96f53] transition-colors">開發工作流</a>
+                <a href="#projects" class="text-sm font-bold text-[#6e6156] hover:text-[#c96f53] transition-colors">專案實績</a>
+                <a href="#contact" class="text-sm font-bold text-[#6e6156] hover:text-[#c96f53] transition-colors">聯絡管道</a>
             </div>
             <!-- 行動裝置簡易導覽 -->
-            <div class="flex md:hidden space-x-4 text-xs font-bold text-slate-500">
-                <a href="#about" class="hover:text-blue-600">定位</a>
-                <a href="#skills" class="hover:text-blue-600">技術</a>
-                <a href="#projects" class="hover:text-blue-600">專案</a>
+            <div class="flex md:hidden space-x-4 text-xs font-bold text-[#6e6156]">
+                <a href="#skills" class="hover:text-[#c96f53]">技術</a>
+                <a href="#architecture" class="hover:text-[#c96f53]">架構圖</a>
+                <a href="#projects" class="hover:text-[#c96f53]">專案</a>
             </div>
         </div>
     </nav>
 
-    <!-- 第一頁：專業主頁 -->
-    <header class="min-h-[calc(100vh-4rem)] flex flex-col justify-center items-center bg-gradient-to-b from-slate-50 via-slate-100/50 to-white px-6 py-16 text-center">
+    <!-- 第一頁：暖色調人文專業主頁 -->
+    <header class="min-h-[calc(100vh-4rem)] flex flex-col justify-center items-center bg-gradient-to-b from-[#fdfbf7] via-[#faf6f0] to-[#f5eedf]/30 px-6 py-16 text-center">
         <div class="mb-6 relative">
-            <!-- 建議：之後可以換成一張背景乾淨、微笑、穿著 smart-casual 的個人形象照 -->
-            <img src="mycat.jpg" alt="呂紫綺" class="img-circle mx-auto" onerror="this.src='https://placehold.co/140x140/3b82f6/ffffff?text=Tzu-Chi'">
+            <!-- 預設為貓咪照片，若載入失敗則顯示優雅的暖色代位圖 -->
+            <img src="mycat.jpg" alt="呂紫綺" class="img-circle mx-auto" onerror="this.src='https://placehold.co/130x130/e3a887/ffffff?text=Tzu-Chi'">
             <span class="absolute bottom-1 right-2 flex h-4 w-4">
                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span class="relative inline-flex rounded-full h-4 w-4 bg-emerald-500 border-2 border-white"></span>
             </span>
         </div>
         
-        <h1 class="text-4xl md:text-5xl font-black tracking-tight text-slate-900 mb-3">呂紫綺 Tzu-Chi Lu</h1>
-        <div class="px-4 py-1.5 bg-slate-900 text-blue-400 font-bold tracking-widest text-xs rounded-lg inline-block uppercase mb-8 shadow-md shadow-slate-950/10 code-font">
+        <h1 class="text-4xl md:text-5xl font-black tracking-tight text-[#2d241e] mb-3">呂紫綺 Tzu-Chi Lu</h1>
+        <div class="px-4 py-1.5 bg-[#2d241e] text-[#fbeee6] font-bold tracking-widest text-xs rounded-lg inline-block uppercase mb-8 shadow-md shadow-[#2d241e]/10 code-font">
             Back-End Developer
         </div>
         
         <!-- 核心專業亮點摘要 -->
-        <div class="max-w-2xl mx-auto bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-200/60 transition-all hover:shadow-md">
-            <p class="text-slate-600 text-sm md:text-base leading-relaxed text-justify md:text-center">
-                專注於 <strong class="text-slate-900 font-bold">Spring Boot 後端應用系統</strong> 開發。<br class="hidden sm:inline">
-                具備獨立處理 <strong class="text-slate-900 font-bold">MySQL 資料庫設計</strong> 與 <strong class="text-slate-900 font-bold">Redis 快取技術整合</strong> 的實務經驗，<br class="hidden sm:inline">
-                並能透過 <strong class="text-slate-900 font-bold">Docker & Docker-compose</strong> 快速建構標準化開發與運行環境。
+        <div class="max-w-2xl mx-auto bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-[#eedec9] transition-all hover:shadow-md">
+            <p class="text-[#6e6156] text-sm md:text-base leading-relaxed text-justify md:text-center">
+                專注於 <strong class="text-[#2d241e] font-bold">Spring Boot 後端應用系統</strong> 開發。<br class="hidden sm:inline">
+                具備獨立處理 <strong class="text-[#2d241e] font-bold">MySQL 資料庫設計</strong> 與 <strong class="text-[#2d241e] font-bold">Redis 快取技術整合</strong> 的實務經驗，<br class="hidden sm:inline">
+                並能透過 <strong class="text-[#2d241e] font-bold">Docker & Docker-compose</strong> 快速建構標準化開發與運行環境。
             </p>
+            <div class="mt-4 text-xs text-[#c96f53] font-bold flex items-center justify-center gap-1">
+                <i class="fa-solid fa-circle-info"></i> 下方區塊支援互動點擊，可查看我的詳細開發思維與實踐！
+            </div>
         </div>
 
         <div class="mt-12 animate-bounce hidden md:block">
-            <a href="#about" class="text-slate-400 hover:text-blue-600 transition-colors">
+            <a href="#about" class="text-[#9e8f82] hover:text-[#c96f53] transition-colors">
                 <i class="fa-solid fa-chevron-down text-xl"></i>
             </a>
         </div>
@@ -87,24 +103,24 @@
     <!-- 關於我 -->
     <section id="about" class="py-24 bg-white px-6">
         <div class="max-w-3xl mx-auto flex flex-col items-center">
-            <h2 class="text-3xl font-black mb-2 text-slate-900 tracking-wide">專業定位 / About Me</h2>
-            <div class="w-12 h-1 bg-blue-600 mb-12 rounded-full"></div>
+            <h2 class="text-3xl font-black mb-2 text-[#2d241e] tracking-wide">專業定位 / About Me</h2>
+            <div class="w-12 h-1 bg-[#c96f53] mb-12 rounded-full"></div>
             
-            <div class="w-full text-left bg-slate-50 p-6 md:p-10 rounded-2xl border border-slate-100 space-y-8">
+            <div class="w-full text-left bg-[#fdfbf7] p-6 md:p-10 rounded-2xl border border-[#eedec9] space-y-8">
                 <div>
-                    <h3 class="text-lg font-bold text-blue-600 mb-3 flex items-center">
+                    <h3 class="text-lg font-bold text-[#c96f53] mb-3 flex items-center">
                         <i class="fa-solid fa-terminal mr-2"></i> 紮實的後端開發與測試邏輯
                     </h3>
-                    <p class="text-slate-600 leading-relaxed text-justify text-sm md:text-base">
+                    <p class="text-[#6e6156] leading-relaxed text-justify text-sm md:text-base">
                         我習慣以 Java 物件導向（OOP）思維為核心，逐步推展至 Spring Boot Web 框架。在開發 API 時，我堅持搭配 <strong>Postman 進行嚴謹的接口測試</strong>，確保系統的輸入、輸出與商務邏輯皆符合規格。面對 Bug 時，我能藉由 <strong>Log 訊息</strong> 與程式斷點排查問題，並透過 <strong>Docker 容器化</strong> 技術快速建立與還原乾淨的測試環境，保障代碼交付品質。
                     </p>
                 </div>
                 
-                <div class="border-t border-slate-200/60 pt-6">
-                    <h3 class="text-lg font-bold text-blue-600 mb-3 flex items-center">
+                <div class="border-t border-[#eedec9] pt-6">
+                    <h3 class="text-lg font-bold text-[#c96f53] mb-3 flex items-center">
                         <i class="fa-solid fa-comments mr-2"></i> 跨團隊溝通與軟實力
                     </h3>
-                    <p class="text-slate-600 leading-relaxed text-justify text-sm md:text-base">
+                    <p class="text-[#6e6156] leading-relaxed text-justify text-sm md:text-base">
                         過往多元的職場歷練，鍛鍊出我卓越的<strong>抗壓性</strong>與<strong>系統性溝通能力</strong>。我擅長扮演工程團隊與非技術關係人（如 PM、前端、營運方）之間的橋樑，能將繁複的後端資料結構轉化為清晰易懂的接口規格，確保前後端協作流暢並如期完成產品落地。
                     </p>
                 </div>
@@ -112,56 +128,125 @@
         </div>
     </section>
 
-    <!-- 核心技術 -->
-    <section id="skills" class="py-24 bg-slate-50 px-6">
+    <!-- 核心技術（互動點擊版） -->
+    <section id="skills" class="py-24 bg-[#faf6f0] px-6">
         <div class="max-w-5xl mx-auto flex flex-col items-center">
-            <h2 class="text-3xl font-black mb-2 text-slate-900 tracking-wide">核心技術 / Technical Skills</h2>
-            <div class="w-12 h-1 bg-blue-600 mb-16 rounded-full"></div>
+            <h2 class="text-3xl font-black mb-2 text-[#2d241e] tracking-wide">技術棧儀表板 / Tech Stack</h2>
+            <p class="text-sm text-[#6e6156] mb-4">點擊下方各項技術卡片，可即時查看我的實務應用與理解</p>
+            <div class="w-12 h-1 bg-[#c96f53] mb-12 rounded-full"></div>
             
-            <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- 儀表板 Grid -->
+            <div class="w-full grid grid-cols-2 md:grid-cols-4 gap-4">
                 
-                <!-- 1. 後端開發 -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex flex-col justify-between transition-all hover:-translate-y-1 hover:shadow-md duration-300">
+                <!-- 1. Java -->
+                <div onclick="openSkillDrawer('java')" class="bg-white p-6 rounded-2xl shadow-xs border border-[#eedec9] hover:border-[#c96f53] hover:shadow-md cursor-pointer transition-all duration-300 flex flex-col justify-between group">
+                    <div class="text-3xl text-[#c96f53] mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fa-brands fa-java"></i>
+                    </div>
                     <div>
-                        <div class="flex items-center mb-4">
-                            <div class="px-2.5 py-1 bg-blue-50 text-blue-600 rounded-lg text-xs font-black mr-2 tracking-wider code-font">BACKEND</div>
-                            <h4 class="text-lg font-bold text-slate-800">核心後端開發</h4>
-                        </div>
-                        <ul class="text-slate-600 text-sm space-y-3 leading-relaxed">
-                            <li class="flex items-start"><span class="text-blue-500 mr-2">•</span><span><strong>Java SE & OOP</strong>：熟練基礎物件導向、例外處理（Exception）與集合類別運用。</span></li>
-                            <li class="flex items-start"><span class="text-blue-500 mr-2">•</span><span><strong>Spring Boot Ecosystem</strong>：熟練運用 Spring Web 建立 RESTful API，並使用 <strong>Lombok</strong> 精簡開發代碼。</span></li>
-                            <li class="flex items-start"><span class="text-blue-500 mr-2">•</span><span><strong>Postman 測試</strong>：熟悉 API 請求與響應分析，能自行編寫測試參數進行介面完整性驗證。</span></li>
-                        </ul>
+                        <h4 class="font-bold text-[#2d241e] text-base md:text-lg mb-1">Java</h4>
+                        <p class="text-[#9e8f82] text-xs">物件導向與核心語法</p>
+                    </div>
+                    <div class="mt-4 text-xs font-bold text-[#c96f53] flex items-center justify-between">
+                        <span>點擊展開</span> <i class="fa-solid fa-arrow-right"></i>
                     </div>
                 </div>
 
-                <!-- 2. 資料庫與快取機制 -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex flex-col justify-between transition-all hover:-translate-y-1 hover:shadow-md duration-300">
+                <!-- 2. Spring Boot -->
+                <div onclick="openSkillDrawer('springboot')" class="bg-white p-6 rounded-2xl shadow-xs border border-[#eedec9] hover:border-[#c96f53] hover:shadow-md cursor-pointer transition-all duration-300 flex flex-col justify-between group">
+                    <div class="text-3xl text-emerald-600 mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
                     <div>
-                        <div class="flex items-center mb-4">
-                            <div class="px-2.5 py-1 bg-purple-50 text-purple-600 rounded-lg text-xs font-black mr-2 tracking-wider code-font">DATA</div>
-                            <h4 class="text-lg font-bold text-slate-800">資料庫與快取</h4>
-                        </div>
-                        <ul class="text-slate-600 text-sm space-y-3 leading-relaxed">
-                            <li class="flex items-start"><span class="text-purple-500 mr-2">•</span><span><strong>MySQL Database</strong>：熟練關係型資料庫設計，包含 Table 欄位規劃與基礎 CRUD 語法編寫。</span></li>
-                            <li class="flex items-start"><span class="text-purple-500 mr-2">•</span><span><strong>Spring Data JPA & JDBC</strong>：具備使用 JPA 進行 ORM 物件關聯映射，以及使用 JDBC 進行基礎 SQL 直連操作的雙軌實作經驗。</span></li>
-                            <li class="flex items-start"><span class="text-purple-500 mr-2">•</span><span><strong>Redis Caching</strong>：理解 NoSQL 機制，能整合 Redis 將高頻率讀取的靜態資料進行快取優化。</span></li>
-                        </ul>
+                        <h4 class="font-bold text-[#2d241e] text-base md:text-lg mb-1">Spring Boot</h4>
+                        <p class="text-[#9e8f82] text-xs">API 與 Web 服務開發</p>
+                    </div>
+                    <div class="mt-4 text-xs font-bold text-[#c96f53] flex items-center justify-between">
+                        <span>點擊展開</span> <i class="fa-solid fa-arrow-right"></i>
                     </div>
                 </div>
 
-                <!-- 3. 維運與開發工具 -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex flex-col justify-between transition-all hover:-translate-y-1 hover:shadow-md duration-300">
+                <!-- 3. MySQL (JPA/JDBC) -->
+                <div onclick="openSkillDrawer('mysql')" class="bg-white p-6 rounded-2xl shadow-xs border border-[#eedec9] hover:border-[#c96f53] hover:shadow-md cursor-pointer transition-all duration-300 flex flex-col justify-between group">
+                    <div class="text-3xl text-[#df9a57] mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fa-solid fa-database"></i>
+                    </div>
                     <div>
-                        <div class="flex items-center mb-4">
-                            <div class="px-2.5 py-1 bg-emerald-50 text-emerald-600 rounded-lg text-xs font-black mr-2 tracking-wider code-font">DEVOPS & OS</div>
-                            <h4 class="text-lg font-bold text-slate-800">環境與維運工具</h4>
-                        </div>
-                        <ul class="text-slate-600 text-sm space-y-3 leading-relaxed">
-                            <li class="flex items-start"><span class="text-emerald-500 mr-2">•</span><span><strong>Docker & Compose</strong>：掌握編寫 Dockerfile、使用 Docker-compose 一鍵建立包含 MySQL/Redis 的本地整合開發環境。</span></li>
-                            <li class="flex items-start"><span class="text-emerald-500 mr-2">•</span><span><strong>Linux / Ubuntu</strong>：熟悉 Linux CLI 基礎環境指令（如檔案管理、進程查看、目錄結構等）。</span></li>
-                            <li class="flex items-start"><span class="text-emerald-500 mr-2">•</span><span><strong>AWS (Basic)</strong>：理解基礎雲端概念，具備基本的 EC2 實例啟動與環境部署觀念。</span></li>
-                        </ul>
+                        <h4 class="font-bold text-[#2d241e] text-base md:text-lg mb-1">MySQL</h4>
+                        <p class="text-[#9e8f82] text-xs">JPA 與 JDBC 雙軌實踐</p>
+                    </div>
+                    <div class="mt-4 text-xs font-bold text-[#c96f53] flex items-center justify-between">
+                        <span>點擊展開</span> <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- 4. Redis -->
+                <div onclick="openSkillDrawer('redis')" class="bg-white p-6 rounded-2xl shadow-xs border border-[#eedec9] hover:border-[#c96f53] hover:shadow-md cursor-pointer transition-all duration-300 flex flex-col justify-between group">
+                    <div class="text-3xl text-rose-600 mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fa-solid fa-cubes"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-[#2d241e] text-base md:text-lg mb-1">Redis</h4>
+                        <p class="text-[#9e8f82] text-xs">快取基礎應用機制</p>
+                    </div>
+                    <div class="mt-4 text-xs font-bold text-[#c96f53] flex items-center justify-between">
+                        <span>點擊展開</span> <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- 5. Docker -->
+                <div onclick="openSkillDrawer('docker')" class="bg-white p-6 rounded-2xl shadow-xs border border-[#eedec9] hover:border-[#c96f53] hover:shadow-md cursor-pointer transition-all duration-300 flex flex-col justify-between group">
+                    <div class="text-3xl text-sky-600 mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fa-brands fa-docker"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-[#2d241e] text-base md:text-lg mb-1">Docker</h4>
+                        <p class="text-[#9e8f82] text-xs">Dockerfile / Compose 環境</p>
+                    </div>
+                    <div class="mt-4 text-xs font-bold text-[#c96f53] flex items-center justify-between">
+                        <span>點擊展開</span> <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- 6. Postman -->
+                <div onclick="openSkillDrawer('postman')" class="bg-white p-6 rounded-2xl shadow-xs border border-[#eedec9] hover:border-[#c96f53] hover:shadow-md cursor-pointer transition-all duration-300 flex flex-col justify-between group">
+                    <div class="text-3xl text-orange-500 mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-[#2d241e] text-base md:text-lg mb-1">Postman</h4>
+                        <p class="text-[#9e8f82] text-xs">API 功能完整性測試</p>
+                    </div>
+                    <div class="mt-4 text-xs font-bold text-[#c96f53] flex items-center justify-between">
+                        <span>點擊展開</span> <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- 7. Linux / Ubuntu -->
+                <div onclick="openSkillDrawer('linux')" class="bg-white p-6 rounded-2xl shadow-xs border border-[#eedec9] hover:border-[#c96f53] hover:shadow-md cursor-pointer transition-all duration-300 flex flex-col justify-between group">
+                    <div class="text-3xl text-[#6e6156] mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fa-brands fa-linux"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-[#2d241e] text-base md:text-lg mb-1">Linux / Ubuntu</h4>
+                        <p class="text-[#9e8f82] text-xs">常用 CLI 與系統操作</p>
+                    </div>
+                    <div class="mt-4 text-xs font-bold text-[#c96f53] flex items-center justify-between">
+                        <span>點擊展開</span> <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- 8. AWS (Basic) -->
+                <div onclick="openSkillDrawer('aws')" class="bg-white p-6 rounded-2xl shadow-xs border border-[#eedec9] hover:border-[#c96f53] hover:shadow-md cursor-pointer transition-all duration-300 flex flex-col justify-between group">
+                    <div class="text-3xl text-amber-500 mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fa-brands fa-aws"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-[#2d241e] text-base md:text-lg mb-1">AWS (Basic)</h4>
+                        <p class="text-[#9e8f82] text-xs">基礎雲端託管觀念</p>
+                    </div>
+                    <div class="mt-4 text-xs font-bold text-[#c96f53] flex items-center justify-between">
+                        <span>點擊展開</span> <i class="fa-solid fa-arrow-right"></i>
                     </div>
                 </div>
 
@@ -169,70 +254,126 @@
         </div>
     </section>
 
-    <!-- 專案實績 -->
-    <section id="projects" class="py-24 bg-white px-6">
-        <div class="max-w-3xl mx-auto flex flex-col items-center">
-            <h2 class="text-3xl font-black mb-2 text-slate-900 tracking-wide">專案實績 / Projects</h2>
-            <div class="w-12 h-1 bg-blue-600 mb-16 rounded-full"></div>
+    <!-- 專案架構圖呈現 -->
+    <section id="architecture" class="py-24 bg-white px-6">
+        <div class="max-w-4xl mx-auto flex flex-col items-center text-center">
+            <h2 class="text-3xl font-black mb-2 text-[#2d241e] tracking-wide">專案全景架構圖 / System Architecture</h2>
+            <p class="text-sm text-[#6e6156] mb-8">這是我為專案設計的完整技術拓撲。透過清晰的分層，展示資料流、快取整合與容器部署關係。</p>
+            <div class="w-12 h-1 bg-[#c96f53] mb-12 rounded-full"></div>
+
+            <!-- 架構圖卡片：正確引用 架構圖5.2_2.png -->
+            <div onclick="openImageModal()" class="w-full bg-[#faf6f0] p-4 md:p-6 rounded-3xl border-2 border-[#eedec9] hover:border-[#c96f53] hover:shadow-xl cursor-zoom-in transition-all duration-300 group relative overflow-hidden">
+                <img src="架構圖5.2_2.png" alt="專案全景架構圖" class="w-full h-auto rounded-2xl object-cover" onerror="this.src='https://placehold.co/1200x800/eedec9/2d241e?text=Architecture+Diagram+Placeholder'">
+                <div class="absolute inset-0 bg-[#2d241e]/10 group-hover:bg-[#2d241e]/0 transition-colors flex items-center justify-center">
+                    <span class="px-5 py-2.5 bg-[#2d241e]/90 text-white rounded-xl font-bold text-sm shadow-lg flex items-center gap-2 transform translate-y-0 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-magnifying-glass-plus"></i> 點擊展開高清全景架構
+                    </span>
+                </div>
+            </div>
             
-            <div class="w-full space-y-8 text-left">
+            <p class="mt-4 text-xs text-[#9e8f82] italic">※ 註：此架構圖涵蓋了 Java、Docker 容器化、Redis 快取緩衝及基礎 AWS 配置，是我的專案設計藍圖。</p>
+        </div>
+    </section>
+
+    <!-- 核心開發工作流程 -->
+    <section id="workflow" class="py-24 bg-white px-6">
+        <div class="max-w-4xl mx-auto flex flex-col items-center text-center">
+            <h2 class="text-3xl font-black mb-2 text-[#2d241e] tracking-wide">開發工作流 / Workflow</h2>
+            <p class="text-sm text-[#6e6156] mb-12">這是我開發後端 API 系統時，一貫堅持的「嚴謹開發 4 步驟」（點擊可查看我的思維）</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 w-full text-left relative">
+                
+                <!-- Step 1 -->
+                <div onclick="showWorkflowDetail(1)" id="flow-card-1" class="p-6 bg-[#fdfbf7] border-2 border-[#eedec9] hover:border-[#c96f53] rounded-2xl cursor-pointer transition-all duration-300 shadow-xs relative">
+                    <div class="absolute -top-4 left-6 px-3 py-1 bg-[#2d241e] text-[#fbeee6] text-xs font-black rounded-lg code-font">STEP 01</div>
+                    <h4 class="text-base font-black text-[#2d241e] mt-2 mb-2"><i class="fa-solid fa-circle-play text-sky-600 mr-2"></i>容器化建置環境</h4>
+                    <p class="text-[#6e6156] text-xs leading-relaxed">利用 Docker-compose 一鍵拉起 MySQL 與 Redis，確保開發環境完全隔離與整潔。</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div onclick="showWorkflowDetail(2)" id="flow-card-2" class="p-6 bg-[#fdfbf7] border-2 border-[#eedec9] hover:border-[#c96f53] rounded-2xl cursor-pointer transition-all duration-300 shadow-xs relative">
+                    <div class="absolute -top-4 left-6 px-3 py-1 bg-[#2d241e] text-[#fbeee6] text-xs font-black rounded-lg code-font">STEP 02</div>
+                    <h4 class="text-base font-black text-[#2d241e] mt-2 mb-2"><i class="fa-solid fa-code text-[#c96f53] mr-2"></i>商務邏輯與 RESTful</h4>
+                    <p class="text-[#6e6156] text-xs leading-relaxed">撰寫 Java 與 Spring Boot Web API。利用 JPA 或 JDBC 底層存取資料庫。</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div onclick="showWorkflowDetail(3)" id="flow-card-3" class="p-6 bg-[#fdfbf7] border-2 border-[#eedec9] hover:border-[#c96f53] rounded-2xl cursor-pointer transition-all duration-300 shadow-xs relative">
+                    <div class="absolute -top-4 left-6 px-3 py-1 bg-[#2d241e] text-[#fbeee6] text-xs font-black rounded-lg code-font">STEP 03</div>
+                    <h4 class="text-base font-black text-[#2d241e] mt-2 mb-2"><i class="fa-solid fa-bolt text-[#df9a57] mr-2"></i>記憶體快取加速</h4>
+                    <p class="text-[#6e6156] text-xs leading-relaxed">整合 Redis，將高頻重複讀取的基礎資料（如分類）存入快取，大幅減輕 DB 負擔。</p>
+                </div>
+
+                <!-- Step 4 -->
+                <div onclick="showWorkflowDetail(4)" id="flow-card-4" class="p-6 bg-[#fdfbf7] border-2 border-[#eedec9] hover:border-[#c96f53] rounded-2xl cursor-pointer transition-all duration-300 shadow-xs relative">
+                    <div class="absolute -top-4 left-6 px-3 py-1 bg-[#2d241e] text-[#fbeee6] text-xs font-black rounded-lg code-font">STEP 04</div>
+                    <h4 class="text-base font-black text-[#2d241e] mt-2 mb-2"><i class="fa-solid fa-list-check text-emerald-600 mr-2"></i>Postman 完整驗證</h4>
+                    <p class="text-[#6e6156] text-xs leading-relaxed">嚴格驗證 HTTP 狀態碼與 JSON 欄位結構，排除 Bug 後才交付程式碼。</p>
+                </div>
+
+            </div>
+
+            <!-- 動態說明區域 -->
+            <div id="flow-explanation" class="w-full mt-8 bg-[#faf6f0] p-6 rounded-2xl border border-[#eedec9] text-left transition-all duration-500">
+                <h4 id="flow-exp-title" class="text-base font-bold text-[#c96f53] mb-2">💡 點擊上方任何一個開發步驟...</h4>
+                <p id="flow-exp-desc" class="text-sm text-[#6e6156] leading-relaxed">在上面點擊我開發時的步驟，能看到我解決問題與建置架構的實務細節。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 專案實績 -->
+    <section id="projects" class="py-24 bg-[#faf6f0] px-6">
+        <div class="max-w-4xl mx-auto flex flex-col items-center">
+            <h2 class="text-3xl font-black mb-2 text-[#2d241e] tracking-wide">專案實績 / Projects</h2>
+            <p class="text-sm text-[#6e6156] mb-12">我目前獨立完成的兩款後端核心專案，點擊專案卡片可展開技術架構與成果</p>
+            <div class="w-12 h-1 bg-[#c96f53] mb-12 rounded-full"></div>
+            
+            <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
                 
                 <!-- 專案 1 (JPA) -->
-                <div class="p-6 md:p-8 border border-slate-200 rounded-2xl bg-white shadow-sm hover:shadow-md hover:border-blue-500 transition duration-300">
-                    <div class="flex justify-between items-start flex-wrap gap-4 mb-4">
-                        <div>
-                            <h4 class="text-xl font-bold text-slate-900 mb-1">💻 Spring Boot & JPA 整合開發系統</h4>
-                            <p class="text-slate-400 text-xs font-medium">使用 Spring Web, JPA, Lombok, MySQL, Redis, Docker-compose</p>
+                <div onclick="openProjectModal('jpa')" class="p-6 md:p-8 border border-[#eedec9] rounded-2xl bg-white shadow-xs hover:shadow-md hover:border-[#c96f53] cursor-pointer transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-[10px] px-2.5 py-1 bg-[#fdf2ee] text-[#c96f53] rounded-md font-bold tracking-wider uppercase code-font">Spring Boot + JPA</span>
+                            <span class="text-xs font-semibold text-emerald-600 flex items-center gap-1"><span class="h-2 w-2 rounded-full bg-emerald-500 inline-block animate-pulse"></span>核心完成 / 優化中</span>
                         </div>
-                        <span class="text-xs px-3 py-1 bg-amber-50 text-amber-700 border border-amber-200 rounded-full font-bold tracking-wider">核心功能完成 / 優化中</span>
-                    </div>
-                    
-                    <div class="mb-4 text-slate-600 text-sm md:text-base space-y-2">
-                        <p class="text-justify">
-                            以 <strong class="text-slate-900 font-bold">Spring Boot 3.x</strong> 為核心開發的後端 RESTful 服務。透過 JPA 物件關係映射框架，實現高效且結構嚴謹的 MySQL 資料庫存取。
+                        <h4 class="text-xl font-bold text-[#2d241e] mb-3">💻 Spring Boot & JPA 整合開發系統</h4>
+                        <p class="text-[#6e6156] text-sm leading-relaxed mb-6 text-justify">
+                            以 Spring Boot 3.x 為核心開發的後端 RESTful 服務。透過 JPA 框架，實現高效且結構嚴謹的 MySQL 資料庫存取，並整合 Redis 快取機制...
                         </p>
-                        <p class="text-slate-800 font-medium">✨ 技術實踐與成果：</p>
-                        <ul class="list-disc pl-5 text-sm space-y-1 text-slate-600">
-                            <li>使用 <strong>Spring Data JPA</strong> 實作動態查詢與關聯 Table 串接，減少傳統手寫 SQL 繁瑣程序並保障可讀性。</li>
-                            <li>整合 <strong>Redis</strong> 作為快取緩衝，將高頻重複讀取的基礎資料（例如分類或設定檔）存於記憶體，減少 MySQL 資料庫的讀取負載。</li>
-                            <li>編寫 <strong>Docker-compose 配置文件</strong>，一鍵拉起本地 MySQL、Redis 以及應用程式容器，簡化團隊本地開發與聯調環境初始化流程。</li>
-                            <li>搭配 <strong>Postman 建立測試案例</strong>，在每次修改程式後進行 API 功能與 HTTP 狀態碼回傳驗證。</li>
-                        </ul>
                     </div>
-
-                    <div class="bg-slate-100 rounded-full h-2 w-full mt-6 mb-1">
-                        <div class="bg-amber-500 h-2 rounded-full transition-all duration-500" style="width: 85%"></div>
+                    <div>
+                        <div class="bg-[#faf6f0] rounded-full h-2 w-full mb-1">
+                            <div class="bg-[#c96f53] h-2 rounded-full" style="width: 85%"></div>
+                        </div>
+                        <div class="flex justify-between text-xs text-[#9e8f82] font-semibold">
+                            <span>點擊卡片查看技術細節</span>
+                            <span>進度 85%</span>
+                        </div>
                     </div>
-                    <p class="text-slate-400 text-right text-xs font-semibold">整體開發進度: 85%</p>
                 </div>
 
                 <!-- 專案 2 (JDBC) -->
-                <div class="p-6 md:p-8 border border-slate-200 rounded-2xl bg-white shadow-sm hover:shadow-md hover:border-blue-500 transition duration-300">
-                    <div class="flex justify-between items-start flex-wrap gap-4 mb-4">
-                        <div>
-                            <h4 class="text-xl font-bold text-slate-900 mb-1">🔌 Spring Boot & JDBC 底層資料鏈接專案</h4>
-                            <p class="text-slate-400 text-xs font-medium">使用 Spring Web, JDBC, Lombok, MySQL, Redis</p>
+                <div onclick="openProjectModal('jdbc')" class="p-6 md:p-8 border border-[#eedec9] rounded-2xl bg-white shadow-xs hover:shadow-md hover:border-[#c96f53] cursor-pointer transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-[10px] px-2.5 py-1 bg-[#eef5f0] text-emerald-700 rounded-md font-bold tracking-wider uppercase code-font">Spring Boot + JDBC</span>
+                            <span class="text-xs font-semibold text-sky-600 flex items-center gap-1"><span class="h-2 w-2 rounded-full bg-sky-500 inline-block"></span>已完成 Completed</span>
                         </div>
-                        <span class="text-xs px-3 py-1 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-full font-bold tracking-wider">已完成 Completed</span>
-                    </div>
-
-                    <div class="mb-4 text-slate-600 text-sm md:text-base space-y-2">
-                        <p class="text-justify">
-                            為深入探究 Java 與資料庫最本源的連接機制，特意使用傳統 <strong class="text-slate-900 font-bold">JDBC</strong> 所建構的輕量級後端應用。
+                        <h4 class="text-xl font-bold text-[#2d241e] mb-3">🔌 Spring Boot & JDBC 底層資料鏈接專案</h4>
+                        <p class="text-[#6e6156] text-sm leading-relaxed mb-6 text-justify">
+                            為深入探究 Java 與資料庫最底層的連接機制，使用原生 JDBC 建構的後端應用。擺脫高階框架的包裝，手寫 SQL (CRUD) 語句...
                         </p>
-                        <p class="text-slate-800 font-medium">✨ 技術實踐與成果：</p>
-                        <ul class="list-disc pl-5 text-sm space-y-1 text-slate-600">
-                            <li>深入理解 Connection、PreparedStatement 等 JDBC 核心物件，手寫原生 SQL 語句（DML/DDL），厚實資料庫底層底子。</li>
-                            <li>配合 <strong>Spring Web</strong> 包裝成 RESTful API，並利用 Lombok 套件簡化 Entity/DTO 封裝過程。</li>
-                            <li>同樣搭配 <strong>Redis 快取結構</strong>，練習基礎的 Key-Value 快取淘汰與建立機制。</li>
-                            <li>熟練利用 <strong>Postman</strong> 驗證原生 SQL 執行的正確性與資料完整性。</li>
-                        </ul>
                     </div>
-
-                    <div class="bg-slate-100 rounded-full h-2 w-full mt-6 mb-1">
-                        <div class="bg-emerald-500 h-2 rounded-full transition-all duration-500" style="width: 100%"></div>
+                    <div>
+                        <div class="bg-[#faf6f0] rounded-full h-2 w-full mb-1">
+                            <div class="bg-[#df9a57] h-2 rounded-full" style="width: 100%"></div>
+                        </div>
+                        <div class="flex justify-between text-xs text-[#9e8f82] font-semibold">
+                            <span>點擊卡片查看技術細節</span>
+                            <span>進度 100%</span>
+                        </div>
                     </div>
-                    <p class="text-slate-400 text-right text-xs font-semibold">專案進度: 100%</p>
                 </div>
 
             </div>
@@ -240,38 +381,379 @@
     </section>
 
     <!-- 聯絡管道 -->
-    <footer id="contact" class="py-20 bg-slate-950 text-white px-6">
+    <footer id="contact" class="py-20 bg-[#2d241e] text-[#fdfbf7] px-6">
         <div class="max-w-4xl mx-auto flex flex-col items-center text-center">
             <h2 class="text-3xl font-black mb-2 tracking-wide">聯絡管道 / Contact</h2>
-            <div class="w-12 h-1 bg-blue-600 mb-12 rounded-full"></div>
+            <div class="w-12 h-1 bg-[#c96f53] mb-12 rounded-full"></div>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-lg mx-auto font-medium">
                 <!-- 信箱按鈕 (帶一鍵複製功能) -->
-                <button onclick="copyToClipboard('Tzuchilu0912@gmail.com', '信箱已複製！')" class="flex items-center justify-center p-4 bg-slate-900/50 rounded-xl border border-slate-800 hover:border-blue-500 hover:bg-slate-900 text-slate-300 hover:text-blue-400 transition-all duration-300 group">
+                <button onclick="copyToClipboard('Tzuchilu0912@gmail.com', '信箱已複製！')" class="flex items-center justify-center p-4 bg-[#3d3127] rounded-xl border border-[#4d3f33] hover:border-[#c96f53] hover:bg-[#43362c] text-[#fdfbf7]/80 hover:text-[#fdfbf7] transition-all duration-300 group">
                     <i class="fa-solid fa-envelope mr-3 text-lg group-hover:scale-110 transition-transform"></i> 
                     <span class="text-sm md:text-base code-font">Tzuchilu0912@gmail.com</span>
                 </button>
                 <!-- Line按鈕 (帶一鍵複製功能) -->
-                <button onclick="copyToClipboard('0955067583', 'LINE ID 已複製！')" class="flex items-center justify-center p-4 bg-slate-900/50 rounded-xl border border-slate-800 hover:border-blue-500 hover:bg-slate-900 text-slate-300 hover:text-blue-400 transition-all duration-300 group">
+                <button onclick="copyToClipboard('0955067583', 'LINE ID 已複製！')" class="flex items-center justify-center p-4 bg-[#3d3127] rounded-xl border border-[#4d3f33] hover:border-[#c96f53] hover:bg-[#43362c] text-[#fdfbf7]/80 hover:text-[#fdfbf7] transition-all duration-300 group">
                     <i class="fa-solid fa-comments mr-3 text-lg group-hover:scale-110 transition-transform"></i> 
-                    <span class="text-sm md:text-base">LINE ID: <span class="text-white select-all ml-1 code-font">09-55067583</span></span>
+                    <span class="text-sm md:text-base">LINE ID: <span class="text-[#fdfbf7] select-all ml-1 code-font">09-55067583</span></span>
                 </button>
             </div>
             
-            <p class="mt-24 text-slate-600 text-xs uppercase tracking-widest code-font">© 2026 Tzu-Chi Lu · Back-End Engineer Portfolio</p>
+            <p class="mt-24 text-[#9e8f82] text-xs uppercase tracking-widest code-font">© 2026 Tzu-Chi Lu · Back-End Engineer Portfolio</p>
         </div>
     </footer>
 
-    <!-- Toast 提示組件 -->
-    <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-10 opacity-0 bg-slate-900 text-blue-400 border border-blue-500/30 px-5 py-3 rounded-xl shadow-2xl transition-all duration-300 pointer-events-none flex items-center gap-2">
-        <i class="fa-solid fa-circle-check text-emerald-400"></i>
-        <span id="toast-text" class="text-sm font-bold text-white">複製成功！</span>
+    <!-- 技術抽屜元件 (側邊滑出) -->
+    <div id="skill-drawer-overlay" onclick="closeSkillDrawer()" class="fixed inset-0 bg-[#2d241e]/50 backdrop-blur-xs z-50 opacity-0 pointer-events-none transition-opacity duration-300 flex justify-end">
+        <div id="skill-drawer" onclick="event.stopPropagation()" class="w-full max-w-md bg-white h-full shadow-2xl p-8 overflow-y-auto translate-x-full transition-transform duration-300 flex flex-col justify-between">
+            <div>
+                <div class="flex justify-between items-center mb-6">
+                    <span class="px-3 py-1 bg-[#faf6f0] text-[#c96f53] text-xs font-bold rounded-lg uppercase code-font" id="drawer-tag">TECH DETAIL</span>
+                    <button onclick="closeSkillDrawer()" class="text-[#9e8f82] hover:text-[#2d241e] text-xl transition-colors">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="flex items-center gap-4 mb-6">
+                    <div id="drawer-icon" class="text-4xl text-[#c96f53]">
+                        <!-- 動態插入 -->
+                    </div>
+                    <h3 id="drawer-title" class="text-2xl font-black text-[#2d241e]">技術名稱</h3>
+                </div>
+                <div id="drawer-content" class="text-[#6e6156] text-sm md:text-base leading-relaxed space-y-4">
+                    <!-- 動態插入詳細技術心路歷程與實作 -->
+                </div>
+            </div>
+            <div class="border-t border-[#eedec9] pt-6 mt-8">
+                <button onclick="closeSkillDrawer()" class="w-full py-3 bg-[#2d241e] text-[#fbeee6] font-bold rounded-xl hover:bg-[#c96f53] transition-colors text-sm">
+                    我知道了，關閉細節
+                </button>
+            </div>
+        </div>
     </div>
 
-    <!-- 複製至剪貼簿的 JavaScript 函數 (相容 iFrame 環境) -->
+    <!-- 專案彈窗元件 -->
+    <div id="project-modal-overlay" onclick="closeProjectModal()" class="fixed inset-0 bg-[#2d241e]/50 backdrop-blur-xs z-50 opacity-0 pointer-events-none transition-opacity duration-300 flex items-center justify-center p-6">
+        <div id="project-modal" onclick="event.stopPropagation()" class="w-full max-w-2xl bg-white rounded-2xl shadow-2xl p-6 md:p-8 max-h-[85vh] overflow-y-auto scale-95 opacity-0 transition-all duration-300">
+            <div class="flex justify-between items-center mb-6">
+                <span class="text-xs px-3 py-1 bg-[#faf6f0] text-[#c96f53] border border-[#eedec9] rounded-full font-bold uppercase code-font" id="modal-tag">PROJECT STUDY</span>
+                <button onclick="closeProjectModal()" class="text-[#9e8f82] hover:text-[#2d241e] text-xl transition-colors">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            
+            <h3 id="modal-title" class="text-2xl font-black text-[#2d241e] mb-4">專案標題</h3>
+            
+            <div id="modal-body" class="text-[#6e6156] space-y-6 text-sm md:text-base leading-relaxed">
+                <!-- 動態插入 -->
+            </div>
+            
+            <div class="border-t border-[#eedec9] pt-6 mt-8 flex justify-end">
+                <button onclick="closeProjectModal()" class="px-6 py-2.5 bg-[#2d241e] text-[#fbeee6] font-bold rounded-xl hover:bg-[#c96f53] transition-colors text-sm">
+                    關閉專案說明
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 全景架構圖 Lightbox 彈窗元件：結合 架構圖5.2_2.png -->
+    <div id="image-modal-overlay" onclick="closeImageModal()" class="fixed inset-0 bg-[#2d241e]/90 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300 flex items-center justify-center p-4">
+        <div class="max-w-5xl w-full relative">
+            <button onclick="closeImageModal()" class="absolute -top-12 right-0 text-white hover:text-[#c96f53] text-3xl transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="bg-white p-2 rounded-3xl shadow-2xl overflow-hidden">
+                <img src="架構圖5.2_2.png" alt="高清專案全景架構圖" class="w-full h-auto rounded-2xl max-h-[80vh] object-contain" onerror="this.src='https://placehold.co/1200x800/eedec9/2d241e?text=Architecture+Diagram+Placeholder'">
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast 提示組件 -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-10 opacity-0 bg-[#3d3127] text-[#fdfbf7] border border-[#c96f53]/30 px-5 py-3 rounded-xl shadow-2xl transition-all duration-300 pointer-events-none flex items-center gap-2">
+        <i class="fa-solid fa-circle-check text-emerald-400"></i>
+        <span id="toast-text" class="text-sm font-bold">複製成功！</span>
+    </div>
+
+    <!-- 核心互動邏輯與內容資料庫 -->
     <script>
+        // === 1. 技術棧詳細資料庫 ===
+        const skillData = {
+            java: {
+                title: "Java 核心與物件導向",
+                icon: '<i class="fa-brands fa-java"></i>',
+                tag: "CORE BACKEND",
+                content: `
+                    <p>我以 <strong>Java SE 基礎</strong> 作為後端核心。在代碼撰寫上，我落實物件導向（OOP）思維，包含：</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>封裝、繼承與多型</strong>：將商務實體合理設計為類別（Classes），利用多型簡化介面與實現。</li>
+                        <li><strong>集合框架（Collections）</strong>：熟練使用 List、Set、Map 等集合，並能根據場景（如快速查找或順序儲存）選用合適的類別。</li>
+                        <li><strong>例外處理（Exception Handling）</strong>：撰寫安全的 <code>try-catch-finally</code> 機制，不因運行時異常導致整個服務異常停止。</li>
+                    </ul>
+                `
+            },
+            springboot: {
+                title: "Spring Boot Web 開發",
+                icon: '<i class="fa-solid fa-leaf"></i>',
+                tag: "WEB FRAMEWORK",
+                content: `
+                    <p>這是我構建 API 系統的主戰場。我能利用 <strong>Spring Boot 3.x</strong> 的便利架構，快速組裝後端服務：</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>RESTful API 設計</strong>：運用 <code>@RestController</code>、<code>@GetMapping</code>、<code>@PostMapping</code> 等註解設計符合業界規範的接口。</li>
+                        <li><strong>依賴注入（DI/IOC）</strong>：熟練運用 <code>@Autowired</code> 與 <code>@Service</code>、<code>@Repository</code> 進行類別間的鬆耦合管理。</li>
+                        <li><strong>代碼精簡（Lombok）</strong>：善用 <code>@Data</code>, <code>@Builder</code> 等註解，在編譯期自動生成 Getter/Setter 與建構子，保持主體程式碼極度乾淨。</li>
+                    </ul>
+                `
+            },
+            mysql: {
+                title: "MySQL 資料庫雙軌整合",
+                icon: '<i class="fa-solid fa-database"></i>',
+                tag: "DATABASE",
+                content: `
+                    <p>我不僅會使用高階 ORM 工具，也重視對底層資料庫連結的理解：</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>Spring Data JPA 實作</strong>：在主要專案中使用 JPA，利用物件關聯映射，以「操作物件」的方式對 MySQL 進行增刪改查，極大提升開發效率。</li>
+                        <li><strong>原生 JDBC 鏈接探究</strong>：特別撰寫了另一個專案使用 JDBC，親手控制 Connection、PreparedStatement 與 ResultSet。這讓我更清楚 SQL 被傳遞並執行的底層細節。</li>
+                        <li><strong>資料庫 Schema 規劃</strong>：能根據業務欄位合理規劃關聯表（One-to-Many、Many-to-Many），並編寫基礎 DML 與 DDL。</li>
+                    </ul>
+                `
+            },
+            redis: {
+                title: "Redis 快取基礎整合",
+                icon: '<i class="fa-solid fa-cubes"></i>',
+                tag: "NOSQL / CACHE",
+                content: `
+                    <p>理解關係型資料庫在面對重複讀取靜態資料時的效能瓶頸，我引入 <strong>NoSQL 快取機制</strong> 進行基礎優化：</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>Cache-Aside 快取策略</strong>：實作當 API 發起請求時，先查詢 Redis 快取。快取存在則直接回傳快取資料；若無，則查詢 MySQL 資料庫，並將結果回寫至 Redis。</li>
+                        <li><strong>減少 MySQL 資料庫讀取負載</strong>：將變動頻率極低的數據（如系統分類、基礎下拉選單）暫存於快取記憶體中，減少頻繁的磁碟 I/O，藉此優化 API 響應時間。</li>
+                    </ul>
+                `
+            },
+            docker: {
+                title: "Docker 容器化開發環境",
+                icon: '<i class="fa-brands fa-docker"></i>',
+                tag: "CONTAINERIZATION",
+                content: `
+                    <p>我極度討厭因為「在我電腦上是好的，去你電腦就壞了」而浪費除錯時間。為此我全面擁抱容器化：</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>Dockerfile 撰寫</strong>：能將 Spring Boot 編譯出來的 JAR 檔案與 JRE 封裝打包成獨立運行的容器映像檔（Image）。</li>
+                        <li><strong>Docker-compose 開發環境一鍵拉起</strong>：編寫 compose 腳本，在本地端同時拉起配置好的 MySQL 容器、Redis 容器，省去安裝與環境被污染的煩惱。</li>
+                        <li><strong>資料持久化（Volumes）</strong>：正確配置硬碟掛載，確保資料庫容器在重啟、移除後，資料依然安全保留。</li>
+                    </ul>
+                `
+            },
+            postman: {
+                title: "Postman 完整接口驗證",
+                icon: '<i class="fa-solid fa-paper-plane"></i>',
+                tag: "API TESTING",
+                content: `
+                    <p>我不僅寫代碼，我更在乎代碼交出去時的完整度。<strong>Postman</strong> 是我不可或缺的測試利器：</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>端點（Endpoints）整合測試</strong>：模擬 GET / POST / PUT / DELETE 各種請求，傳遞 Query Parameters 或 JSON Body。</li>
+                        <li><strong>HTTP 狀態碼（Status Codes）驗證</strong>：嚴格確認成功回傳 200/201、參數錯誤回傳 400，以及無效路由回傳 404 等邊界條件。</li>
+                        <li><strong>錯誤訊息檢查</strong>：測試各種異常輸入，確保系統會拋出定義好的 JSON 錯誤回應，而不是直接回傳伺服器原始錯誤堆疊。</li>
+                    </ul>
+                `
+            },
+            linux: {
+                title: "Linux / Ubuntu 常用操作",
+                icon: '<i class="fa-brands fa-linux"></i>',
+                tag: "OS BASIC",
+                content: `
+                    <p>我對 Linux 系統環境有實務的操作觀念，這有助於後端代碼在容器或虛擬伺服器上的運作：</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>基礎 CLI 指令</strong>：熟悉常用的終端機指令如 <code>cd</code>, <code>ls</code>, <code>mkdir</code>, <code>rm</code> 等基本檔案管理。</li>
+                        <li><strong>權限管理</strong>：理解基本的使用者權限機制（如 <code>chmod</code> 常用指令對檔案權限的控制）。</li>
+                        <li><strong>日誌查看</strong>：能利用 <code>cat</code> 或 <code>tail -f</code> 等常用指令查看基本的系統運作日誌。</li>
+                    </ul>
+                `
+            },
+            aws: {
+                title: "AWS 雲端基礎觀念",
+                icon: '<i class="fa-brands fa-aws"></i>',
+                tag: "CLOUD BASIC",
+                content: `
+                    <p>我具備雲端託管架構的基本概念，理解雲端主機與服務的對接流程：</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>EC2 與 Elastic Beanstalk (EB)</strong>：理解如何啟動雲端虛擬主機，以及如何將專案包裝、上傳並部署於雲端平台。</li>
+                        <li><strong>RDS 雲端資料庫</strong>：具備將本地 MySQL 資料庫移往 RDS 託管資料庫運作的串接設定觀念。</li>
+                        <li><strong>S3 靜態檔案儲存</strong>：理解如何配置 S3 儲存桶以存放專案中的上傳圖片或備份檔案。</li>
+                    </ul>
+                `
+            }
+        };
+
+        // === 2. 專案詳細資料庫 ===
+        const projectData = {
+            jpa: {
+                title: "💻 Spring Boot & JPA 整合開發系統",
+                tag: "SPRING DATA JPA · REDIS · DOCKER-COMPOSE",
+                content: `
+                    <p class="font-bold text-[#2d241e]">📌 專案背景與開發動機：</p>
+                    <p class="text-[#6e6156]">
+                        此專案是我目前技術的整合體。我期望以 <strong>Spring Boot 3.x</strong> 為核心，建立起一個兼具「實用性」與「高可讀性」的後端 RESTful 架構。在開發過程中，我特別重視資料庫操作的高效性，以及環境打包的便利度。
+                    </p>
+                    
+                    <p class="font-bold text-[#2d241e] mt-4">✨ 關鍵技術實踐（我如何做到）：</p>
+                    <ul class="list-disc pl-5 space-y-2 text-[#6e6156]">
+                        <li><strong>物件關係映射（JPA）</strong>：運用 <code>@Entity</code> 快速在 MySQL 建立對應 Table。搭配 <code>JpaRepository</code>，免除手寫 SQL，透過 JPA 動態生成的 CRUD 進行安全操作。</li>
+                        <li><strong>Redis 快取設計</strong>：採用 Cache-Aside 模式。針對高頻率讀取的配置檔、下拉選單進行快取。當快取未命中（Cache Miss）時，才向 MySQL 拿取資料並回寫快取，<strong>顯著提升 API 反應時間並降低資料庫負載</strong>。</li>
+                        <li><strong>Docker-compose 一鍵環境架構</strong>：撰寫 Compose 設定檔，將 MySQL（配置持久化資料夾）與 Redis 封裝在同一個虛擬網域中。這意味著新進開發者只需執行 <code>docker-compose up -d</code>，不需在本機手動配置各類資料庫，即可直接啟用開發。</li>
+                        <li><strong>Postman 功能測試</strong>：針對資料的新增與更新，建立測試用例，反覆驗證輸入不合法（例如為空欄位、格式不對）時，API 能否精準彈回 <code>400 Bad Request</code>。</li>
+                    </ul>
+
+                    <p class="font-bold text-[#2d241e] mt-4">📊 階段性成果與學習收穫：</p>
+                    <p class="text-[#6e6156]">
+                        目前核心資料讀寫、容器化與 Redis 快取機制均已建立並驗證完成（進度 85%）。此專案極大地磨練了我對 <strong class="text-[#2d241e]">JPA 生命週期</strong> 與 <strong class="text-[#2d241e]">快取一致性問題</strong> 的敏感度，也為我未來接觸更大型的後端專案奠定了健康的底子。
+                    </p>
+                `
+            },
+            jdbc: {
+                title: "🔌 Spring Boot & JDBC 底層資料鏈接專案",
+                tag: "SPRING BOOT · JDBC · MYSQL · NATIVE SQL",
+                content: `
+                    <p class="font-bold text-[#2d241e]">📌 專案背景與開發動機：</p>
+                    <p class="text-[#6e6156]">
+                        在學習完自動化的 JPA 之後，我深刻體會到「只懂 JPA 容易淪為套件工人，不清楚底層連接機制，遇到效能排查必會卡關」。因此，我刻意回歸本質，撰寫了這款 <strong>完全不使用 JPA，純粹透過原生 JDBC 操作 MySQL</strong> 的輕量級後端專案。
+                    </p>
+                    
+                    <p class="font-bold text-[#2d241e] mt-4">✨ 關鍵技術實踐（我如何做到）：</p>
+                    <ul class="list-disc pl-5 space-y-2 text-[#6e6156]">
+                        <li><strong>親手控制原生 JDBC 連線</strong>：實作 <code>Connection</code> 連接與手動釋放資源。在 <code>PreparedStatement</code> 中使用佔位符 <code>?</code>，<strong>並深入理解這樣做能如何有效防止 SQL 注入攻擊（SQL Injection）</strong>。</li>
+                        <li><strong>原生 SQL 語法錘鍊</strong>：手寫 DML（INSERT, UPDATE, DELETE）與多表關聯 SELECT 語句，徹底厚實了自己的資料庫底層底子.</li>
+                        <li><strong>DTO 結構手工封裝</strong>：透過 ResultSet 迭代器逐行讀取資料，並手動封裝成 Lombok 的資料載體（Entity / DTO），深入了解高階 ORM 套件背後的原理。</li>
+                        <li><strong>API 完整性測試</strong>：同樣藉由 Postman 發送大量不同參數，排查當資料庫回應為空、重複鍵時，手寫邏輯能否妥善捕獲並轉換為標準的 API 反應。</li>
+                    </ul>
+
+                    <p class="font-bold text-[#2d241e] mt-4">📊 階段性成果與學習收穫：</p>
+                    <p class="text-[#6e6156]">
+                        此專案已完全開發完成。這項實踐讓我感到非常踏實！項目讓我對 SQL 底層處理機制有了自信，也讓我在回頭看 JPA 時，更能理解哪些底層行為被高階註解封裝了，這對後續排查複雜的 ORM 資料鏈接效能有不可忽視的幫助。
+                    </p>
+                `
+            }
+        };
+
+        // === 3. 開發工作流程說明資料庫 ===
+        const workflowDetails = {
+            1: {
+                title: "🛠️ 步驟一：使用 Docker-compose 一鍵容器化環境",
+                desc: "在開始寫任何 Java 邏輯前，我習慣建立完全隔離的乾淨測試環境。我會編寫 <code>docker-compose.yml</code> 腳本，直接拉起 MySQL 與 Redis 容器，並綁定連接通訊埠。這能確保我的本機作業系統不被各種資料庫版本污染，也讓我能在 10 秒內將整套環境還原到最乾淨、無髒資料的狀態，保障開發測試的穩定度。"
+            },
+            2: {
+                title: "💻 步驟二：Spring Boot API 開發與商務邏輯",
+                desc: "環境建置完畢後，開始進行程式碼開發。我使用 Java 的物件導向思維（OOP）結合 Spring Boot Web 框架，設計高穩定、符合 RESTful 規範的 URL 路由。在此階段，我會根據專案的性質，決定要使用高效率開發的 <strong>JPA</strong>，還是追求極致底層與手寫 SQL 控制力的 <strong>JDBC</strong> 方式進行 Table 串接。"
+            },
+            3: {
+                title: "⚡ 步驟三：導入 Redis 快取機制",
+                desc: "當核心資料讀寫完成後，我會進行快取優化。針對那些「讀取頻率超高，但基本不會變動的基礎資料（如分類）」進行快取設計。當使用者發起 API 請求，系統會先往 Redis 快取中查找。這項簡單的機制能<strong>將原本需要耗費磁碟 I/O 的資料庫讀取，完美轉化為毫秒級的記憶體讀取</strong>，直接降低了 80% 以上的 MySQL 資料庫讀寫負載。"
+            },
+            4: {
+                title: "🧪 步驟四：Postman 多端點整合測試",
+                desc: "代碼交付前的最後一道嚴格防線。我會打開 Postman，針對這次開發的所有端點編寫多組參數測試（包含空值、極端格式錯誤、正確資料等）。我會仔細驗證 HTTP 狀態碼是否符合規範（如 200, 400, 500），以及回傳的 JSON 錯誤訊息是否乾淨好懂。唯有通過 Postman 驗證無誤、確信沒有潛在 Bug 後，我才會將程式碼提交合併。"
+            }
+        };
+
+        // === 4. 互動邏輯函數控制 ===
+        
+        // 技術棧抽屜控制
+        function openSkillDrawer(key) {
+            const data = skillData[key];
+            if (!data) return;
+
+            document.getElementById('drawer-tag').textContent = data.tag;
+            document.getElementById('drawer-icon').innerHTML = data.icon;
+            document.getElementById('drawer-title').textContent = data.title;
+            document.getElementById('drawer-content').innerHTML = data.content;
+
+            const overlay = document.getElementById('skill-drawer-overlay');
+            const drawer = document.getElementById('skill-drawer');
+
+            overlay.classList.remove('opacity-0', 'pointer-events-none');
+            drawer.classList.remove('translate-x-full');
+        }
+
+        function closeSkillDrawer() {
+            const overlay = document.getElementById('skill-drawer-overlay');
+            const drawer = document.getElementById('skill-drawer');
+
+            overlay.classList.add('opacity-0', 'pointer-events-none');
+            drawer.classList.add('translate-x-full');
+        }
+
+        // 工作流程切換控制
+        function showWorkflowDetail(step) {
+            const data = workflowDetails[step];
+            if (!data) return;
+
+            // 移除所有卡片的 Active 狀態
+            [1, 2, 3, 4].forEach(i => {
+                const card = document.getElementById(`flow-card-${i}`);
+                card.classList.remove('border-[#c96f53]', 'shadow-md', 'bg-white');
+                card.classList.add('border-[#eedec9]', 'bg-[#fdfbf7]');
+            });
+
+            // 為被點擊的卡片添加高亮
+            const activeCard = document.getElementById(`flow-card-${step}`);
+            activeCard.classList.remove('border-[#eedec9]', 'bg-[#fdfbf7]');
+            activeCard.classList.add('border-[#c96f53]', 'shadow-md', 'bg-white');
+
+            // 更新說明區域，加入淡淡的漸入動畫
+            const expDiv = document.getElementById('flow-explanation');
+            const expTitle = document.getElementById('flow-exp-title');
+            const expDesc = document.getElementById('flow-exp-desc');
+
+            expDiv.style.opacity = 0;
+            setTimeout(() => {
+                expTitle.innerHTML = data.title;
+                expDesc.innerHTML = data.desc;
+                expDiv.style.opacity = 1;
+            }, 150);
+        }
+
+        // 專案彈出視窗控制
+        function openProjectModal(key) {
+            const data = projectData[key];
+            if (!data) return;
+
+            document.getElementById('modal-tag').textContent = data.tag;
+            document.getElementById('modal-title').textContent = data.title;
+            document.getElementById('modal-body').innerHTML = data.content;
+
+            const overlay = document.getElementById('project-modal-overlay');
+            const modal = document.getElementById('project-modal');
+
+            overlay.classList.remove('opacity-0', 'pointer-events-none');
+            modal.classList.remove('scale-95', 'opacity-0');
+            
+            // 鎖定背景網頁滾動
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closeProjectModal() {
+            const overlay = document.getElementById('project-modal-overlay');
+            const modal = document.getElementById('project-modal');
+
+            overlay.classList.add('opacity-0', 'pointer-events-none');
+            modal.classList.add('scale-95', 'opacity-0');
+
+            // 恢復背景滾動
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        // 圖片全景放大 Modal 控制
+        function openImageModal() {
+            const overlay = document.getElementById('image-modal-overlay');
+            overlay.classList.remove('opacity-0', 'pointer-events-none');
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closeImageModal() {
+            const overlay = document.getElementById('image-modal-overlay');
+            overlay.classList.add('opacity-0', 'pointer-events-none');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        // 複製至剪貼簿的 JavaScript 函數 (相容 iFrame 環境)
         function copyToClipboard(text, successMessage) {
-            // 建立一個臨時隱藏的 textarea 進行傳統複製
             const tempTextArea = document.createElement("textarea");
             tempTextArea.value = text;
             document.body.appendChild(tempTextArea);
