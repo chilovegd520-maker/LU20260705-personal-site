@@ -367,21 +367,25 @@
                     </div>
                 </div>
 
-                <!-- 專案 2 (JDBC) -->
+                <!-- 專案 2 (JDBC - 手搖飲點餐系統) -->
                 <div onclick="openProjectModal('jdbc')" class="p-6 md:p-8 border border-[#eedec9] rounded-2xl bg-white shadow-xs hover:shadow-md hover:border-[#c96f53] cursor-pointer transition duration-300 flex flex-col justify-between group">
                     <div>
                         <div class="flex justify-between items-start mb-4">
                             <span class="text-[10px] px-2.5 py-1 bg-[#eef5f0] text-emerald-700 rounded-md font-bold tracking-wider uppercase code-font">Spring Boot + JDBC</span>
-                            <span class="text-xs font-semibold text-sky-600 flex items-center gap-1"><span class="h-2 w-2 rounded-full bg-sky-500 inline-block"></span>底層測試專案</span>
+                            <span class="text-xs font-semibold text-emerald-600 flex items-center gap-1"><span class="h-2 w-2 rounded-full bg-emerald-500 inline-block animate-pulse"></span>已同步 GitHub</span>
                         </div>
-                        <h4 class="text-xl font-bold text-[#2d241e] mb-2 group-hover:text-[#c96f53] transition-colors">🔌 Spring Boot & JDBC 底層資料鏈接專案</h4>
+                        <h4 class="text-xl font-bold text-[#2d241e] mb-2 group-hover:text-[#c96f53] transition-colors">🧋 手搖飲訂單系統 (bubble-tea-order-system)</h4>
                         <p class="text-[#6e6156] text-sm leading-relaxed mb-6 text-justify">
-                            為深入探究 Java 與資料庫最底層的連接機制，使用原生 JDBC 建構的後端應用。擺脫高階框架的包裝，手寫 SQL (CRUD) 語句...
+                            以 Spring Boot 結合原生 JDBC 開發的手搖飲線上點餐系統。擺脫 ORM 框架，手寫原生 SQL 處理飲品菜單、客製化訂單建立與金額計算...
                         </p>
                     </div>
                     <div>
                         <div class="flex items-center justify-between pt-4 border-t border-[#f5eedf]">
-                            <span class="text-xs font-bold text-emerald-700 bg-[#eef5f0] px-2.5 py-1 rounded-md">完成度 100%</span>
+                            <div class="flex items-center gap-2">
+                                <a href="https://github.com/lucc-dev/bubble-tea-order-system" target="_blank" onclick="event.stopPropagation()" class="px-3 py-1.5 bg-[#2d241e] hover:bg-[#c96f53] text-white text-xs font-bold rounded-lg transition-colors inline-flex items-center gap-1.5 code-font">
+                                    <i class="fa-brands fa-github"></i> GitHub Code
+                                </a>
+                            </div>
                             <span class="text-xs text-[#9e8f82] font-semibold flex items-center gap-1">
                                 點擊查看細節 <i class="fa-solid fa-arrow-right text-[#c96f53]"></i>
                             </span>
@@ -625,26 +629,26 @@
                 `
             },
             jdbc: {
-                title: "🔌 Spring Boot & JDBC 底層資料鏈接專案",
-                tag: "SPRING BOOT · JDBC · MYSQL · NATIVE SQL",
-                github: "https://github.com/lucc-dev",
+                title: "🧋 手搖飲訂單系統 (bubble-tea-order-system)",
+                tag: "SPRING BOOT · JDBC · MYSQL · NATIVE SQL · GITHUB REPO",
+                github: "https://github.com/lucc-dev/bubble-tea-order-system",
                 content: `
                     <p class="font-bold text-[#2d241e]">📌 專案背景與開發動機：</p>
                     <p class="text-[#6e6156]">
-                        在學習完自動化的 JPA 之後，我深刻體會到「只懂 JPA 容易淪為套件工人，不清楚底層連接機制，遇到效能排查必會卡關」。因此，我刻意回歸本質，撰寫了這款 <strong>完全不使用 JPA，純粹透過原生 JDBC 操作 MySQL</strong> 的輕量級後端專案。
+                        這是我的 JDBC 底層鏈接實作專案 <strong>手搖飲線上訂單系統</strong>。為了深入探究 Java 與資料庫最底層的連接與效能機制，專案完全不使用 ORM 高階框架（如 JPA），純粹透過原生 <strong>JDBC (PreparedStatement / RowMapper)</strong> 手寫 SQL 來實現手搖飲菜單與訂單管理。專案原始碼已開放於 GitHub：<a href="https://github.com/lucc-dev/bubble-tea-order-system" target="_blank" class="text-[#c96f53] underline font-bold">lucc-dev/bubble-tea-order-system</a>。
                     </p>
                     
                     <p class="font-bold text-[#2d241e] mt-4">✨ 關鍵技術實踐（我如何做到）：</p>
                     <ul class="list-disc pl-5 space-y-2 text-[#6e6156]">
-                        <li><strong>親手控制原生 JDBC 連線</strong>：實作 <code>Connection</code> 連接與手動釋放資源。在 <code>PreparedStatement</code> 中使用佔位符 <code>?</code>，<strong>並深入理解這樣做能如何有效防止 SQL 注入攻擊（SQL Injection）</strong>。</li>
-                        <li><strong>原生 SQL 語法錘鍊</strong>：手寫 DML（INSERT, UPDATE, DELETE）與多表關聯 SELECT 語句，徹底厚實了自己的資料庫底層底子。</li>
-                        <li><strong>DTO 結構手工封裝</strong>：透過 ResultSet 迭代器逐行讀取資料，並手動封裝成 Lombok 的資料載體（Entity / DTO），深入了解高階 ORM 套件背後的原理。</li>
-                        <li><strong>API 完整性測試</strong>：同樣藉由 Postman 發送大量不同參數，排查當資料庫回應為空、重複鍵時，手寫邏輯能否妥善捕獲並轉換為標準的 API 反應。</li>
+                        <li><strong>親手控制原生 JDBC / NamedParameterJdbcTemplate 連線</strong>：實作底層資料存取，透過 <code>PreparedStatement</code> 佔位符機制防止 SQL 注入（SQL Injection）攻擊。</li>
+                        <li><strong>原生 SQL 訂單處理邏輯</strong>：手寫 DML（INSERT, UPDATE, DELETE）與多表關聯（JOIN）查詢，精密計算飲品品項、甜度冰量客製化選項與訂單總金額。</li>
+                        <li><strong>DTO 結構與 ResultSet 映射</strong>：深入了解 JDBC ResultSet 如何將資料庫查詢結果手動封裝為 Java 物件，掌握資料傳輸物（DTO）的轉換細節。</li>
+                        <li><strong>Postman API 測試與異常處置</strong>：為點餐與訂單建立端點撰寫完整測試，驗證無效品項或參數錯誤時的 HTTP 狀態碼與 JSON 錯誤格式。</li>
                     </ul>
 
-                    <p class="font-bold text-[#2d241e] mt-4">📊 階段性成果與學習收穫：</p>
+                    <p class="font-bold text-[#2d241e] mt-4">📊 成果與學習收穫：</p>
                     <p class="text-[#6e6156]">
-                        此專案已完全開發完成。項目讓我對 SQL 底層處理機制有了自信，也讓我在回頭看 JPA 時，更能理解哪些底層行為被高階註解封裝了，這對後續排查複雜的 ORM 資料鏈接效能有不可忽視的幫助。
+                        本專案已完全開發完成並上傳至 GitHub。透過親手實作 JDBC 鏈接，讓我對 SQL 底層執行過程與連線池運作有了紮實的自信，也讓我在使用 JPA 等現代 ORM 工具時更能明白其背後的原理與效能調優方向。
                     </p>
                 `
             }
